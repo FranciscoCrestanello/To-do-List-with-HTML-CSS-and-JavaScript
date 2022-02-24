@@ -4,9 +4,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>To-do list</title>
 </head>
 <body>
-    
+    <div class="containerAll">
+        <header class="header">
+            <!-- there is no need of a label nav because there isn't a navegation -->
+            <h1 class="header__h1">Tasks</h1>
+        </header>
+        <article class="article">
+            <div class="container__tasks">
+                <form action="" class="form">
+                    <h2 class="form__h2">Create Task</h2>
+                    <input type="text" placeholder="Task name" id="TaskName" class="form__task" name="TaskName">
+                    <input type="text" placeholder="Description" id="TaskDescription" class="form__task" name="TaskDescription">
+                    <select name="ImportanceLevel" id="TaskImportanceLevel" name="TaskImportanceLevel">
+                        <option value="0">--- Importance level ---</option> 
+                        <option value="1">Easy</option> 
+                        <option value="2">Medium</option>
+                        <option value="3">Hard</option>
+                    </select>
+                    <button onclick="addTask()">Add task</button>
+                </form>
+            </div>
+            <div class="container__CreatedTasks">
+                TAREAS CREADAS
+            </div>
+        </article>
+        <footer class="footer">
+
+        </footer>
+    </div>
+    <script src="App.js"></script>
 </body>
 </html>
