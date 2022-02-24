@@ -1,5 +1,10 @@
 let taskName, taskDescription, taskValue;
 
+const cancelReloadForm = document.getElementById("form"); // with these lines I prevent to reload the web page
+cancelReloadForm.addEventListener("submit", function() {
+    event.preventDefault();
+});
+
 addTask = () => {
     taskName = document.getElementById("TaskName").value;
     taskDescription = document.getElementById("TaskDescription").value;
@@ -32,7 +37,6 @@ validateData = (name, description, taskValue) => {
     return true;
 }
 createTask = (name, description, taskValue) => {
-    let newTask = document.createElement("p");
     switch(taskValue){
         case '1': taskValue = "Easy";
             break;
@@ -43,8 +47,29 @@ createTask = (name, description, taskValue) => {
         default: alert("Something has gone wrong.");
             break;
     }
-    let nameTask = `${name} + ${description} + ${taskValue} `;
-    newTask.appendChild(nameTask);
 
+    let newTaskContainer = document.createElement("div");
+    let newNameTask = document.createElement("p");
+    let newDescriptionTask = document.createElement("p");
+    let newValueTask = document.createElement("p");
+    let newButtonDelete = document.createElement("button");
+
+    let nameTask = document.createTextNode(name);
+    let descriptionTask = document.createTextNode(description);
+    let valueTask = document.createTextNode(taskValue);
+    let buttonDelete = document.createTextNode("Delete");
+    
+    newNameTask.appendChild(nameTask);
+    newDescriptionTask.appendChild(descriptionTask);
+    newValueTask.appendChild(valueTask);
+    newButtonDelete.appendChild(buttonDelete);
+
+    newTaskContainer.appendChild(newNameTask);
+    newTaskContainer.appendChild(newDescriptionTask);
+    newTaskContainer.appendChild(newValueTask);
+    newTaskContainer.appendChild(newButtonDelete);
+
+    let element = document.getElementById("container__CreatedTasks");
+    element.appendChild(newTaskContainer);
     return;
 }

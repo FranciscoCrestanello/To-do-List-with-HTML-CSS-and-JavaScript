@@ -35,4 +35,14 @@
 .container__CreatedTasks {
     border: 1px solid green;
     width: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+.container__CreatedTasks div{
+    border: 1px solid red;
+    width: 100px;
+    height: 100px;
+    text-align: center;
 }

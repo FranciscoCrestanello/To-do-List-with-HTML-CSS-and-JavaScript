@@ -15,7 +15,7 @@
         </header>
         <article class="article">
             <div class="container__tasks">
-                <form action="" class="form">
+                <form action="" class="form" id="form">
                     <h2 class="form__h2">Create Task</h2>
                     <input type="text" placeholder="Task name" id="TaskName" class="form__task" name="TaskName">
                     <input type="text" placeholder="Description" id="TaskDescription" class="form__task" name="TaskDescription">
@@ -25,11 +25,11 @@
                         <option value="2">Medium</option>
                         <option value="3">Hard</option>
                     </select>
-                    <button onclick="addTask()">Add task</button>
+                    <button onclick="addTask(); prevenDefault()">Add task</button>
                 </form>
             </div>
-            <div class="container__CreatedTasks">
-                TAREAS CREADAS
+            <div class="container__CreatedTasks" id="container__CreatedTasks">
+                
             </div>
         </article>
         <footer class="footer">
