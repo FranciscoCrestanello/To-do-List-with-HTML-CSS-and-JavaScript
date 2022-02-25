@@ -22,13 +22,8 @@ addTask = () => {
     }
     else{
         createTask(taskName, taskDescription, taskValue);
+        cleanInputs();
         alert("tarea agregada.");
-        // alert(
-        //     `Tarea agregada con:
-        //     - Task name: ${taskName}
-        //     - Task description: ${taskDescription}
-        //     - Task value: ${taskValue}`
-        // );
     }
     return;
 }
@@ -53,6 +48,9 @@ createTask = (name, description, taskValue) => {
     let newDescriptionTask = document.createElement("p");
     let newValueTask = document.createElement("p");
     let newButtonDelete = document.createElement("button");
+    newButtonDelete.onclick = function() {
+        newTaskContainer.remove();
+    };
 
     let nameTask = document.createTextNode(name);
     let descriptionTask = document.createTextNode(description);
@@ -72,4 +70,10 @@ createTask = (name, description, taskValue) => {
     let element = document.getElementById("container__CreatedTasks");
     element.appendChild(newTaskContainer);
     return;
+}
+
+cleanInputs = () => {
+    document.getElementById("TaskName").value = '';
+    document.getElementById("TaskDescription").value = '';
+    document.getElementById("TaskImportanceLevel").value = '0';
 }
