@@ -23,7 +23,7 @@ addTask = () => {
     else{
         createTask(taskName, taskDescription, taskValue);
         cleanInputs();
-        alert("tarea agregada.");
+        //alert("tarea agregada.");
     }
     return;
 }
@@ -49,9 +49,10 @@ createTask = (name, description, taskValue) => {
     let newValueTask = document.createElement("p");
     let newButtonDelete = document.createElement("button");
     newButtonDelete.onclick = function() {
-        newTaskContainer.remove();
+        if(confirm(`Do you really want to delete this task?`) == true) newTaskContainer.remove();
+        return;
     };
-
+    
     let nameTask = document.createTextNode(name);
     let descriptionTask = document.createTextNode(description);
     let valueTask = document.createTextNode(taskValue);
